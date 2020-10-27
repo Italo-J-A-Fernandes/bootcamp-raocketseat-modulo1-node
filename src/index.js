@@ -17,7 +17,7 @@ function logRequests(request, response, next) {
   return next();
 }
 
-function validateOrojectsId(request, response, next) {
+function validateProjectsId(request, response, next) {
   const { id } = request.params;
 
   if(!isUuid(id)) {
@@ -29,7 +29,7 @@ function validateOrojectsId(request, response, next) {
 
 app.use(logRequests);
 
-app.use('/projects/:id', validateOrojectsId);
+app.use('/projects/:id', validateProjectsId);
 
 app.get('/projects', (request, response) => {
   const { title } = request.query;
